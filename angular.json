@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fg-study-angular": {
-      "root": "",
-      "sourceRoot": "src",
+    "basic-template": {
+      "root": "projects/basic-template/",
+      "sourceRoot": "projects/basic-template/src",
       "projectType": "application",
       "prefix": "fg",
       "schematics": {
@@ -36,17 +36,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fg-study-angular",
-            "index": "src/app/static-resources/index.html",
-            "main": "src/app/app.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "outputPath": "dist/basic-template",
+            "index": "projects/basic-template/src/app/static-resources/index.html",
+            "main": "projects/basic-template/src/app/app.ts",
+            "polyfills": "projects/basic-template/src/polyfills.ts",
+            "tsConfig": "projects/basic-template/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/basic-template/src/favicon.ico",
+              "projects/basic-template/src/assets"
             ],
             "styles": [
-              "src/app/static-resources/styles/styles.scss"
+              "projects/basic-template/src/app/static-resources/styles/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -55,8 +55,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/basic-template/src/environments/environment.ts",
+                  "with": "projects/basic-template/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -81,34 +81,160 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fg-study-angular:build"
+            "browserTarget": "basic-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fg-study-angular:build:production"
+              "browserTarget": "basic-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fg-study-angular:build"
+            "browserTarget": "basic-template:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/basic-template/src/test.ts",
+            "polyfills": "projects/basic-template/src/polyfills.ts",
+            "tsConfig": "projects/basic-template/tsconfig.spec.json",
+            "karmaConfig": "projects/basic-template/karma.conf.js",
+            "styles": ["projects/basic-template/src/styles.scss"],
+            "scripts": [],
+            "assets": [
+              "projects/basic-template/src/favicon.ico",
+              "projects/basic-template/src/assets"
+            ]
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+            "tsConfig": ["projects/basic-template/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "ngrx-basic-example": {
+      "root": "projects/ngrx-basic-example/",
+      "sourceRoot": "projects/ngrx-basic-example/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngrx-basic-example",
+            "index": "projects/ngrx-basic-example/src/app/static-resources/index.html",
+            "main": "projects/ngrx-basic-example/src/app/app.ts",
+            "polyfills": "projects/ngrx-basic-example/src/polyfills.ts",
+            "tsConfig": "projects/ngrx-basic-example/tsconfig.app.json",
+            "assets": [
+              "projects/ngrx-basic-example/src/favicon.ico",
+              "projects/ngrx-basic-example/src/assets"
             ],
-            "exclude": [
-              "**/node_modules/**"
+            "styles": [
+              "projects/ngrx-basic-example/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngrx-basic-example/src/environments/environment.ts",
+                  "with": "projects/ngrx-basic-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngrx-basic-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngrx-basic-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngrx-basic-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngrx-basic-example/src/test.ts",
+            "polyfills": "projects/ngrx-basic-example/src/polyfills.ts",
+            "tsConfig": "projects/ngrx-basic-example/tsconfig.spec.json",
+            "karmaConfig": "projects/ngrx-basic-example/karma.conf.js",
+            "styles": ["projects/ngrx-basic-example/src/styles.scss"],
+            "scripts": [],
+            "assets": [
+              "projects/ngrx-basic-example/src/favicon.ico",
+              "projects/ngrx-basic-example/src/assets"
             ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/ngrx-basic-example/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
     }
   },
-  "defaultProject": "fg-study-angular"
+  "defaultProject": "basic-template"
 }
