@@ -1,28 +1,30 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter
-} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+
+import { ICounterStore } from '../../ngrx/counter.actions';
+import * as fromCounter from './../../ngrx/counter.actions';
 
 @Component({
   selector: 'fg-third-grade-operations',
   templateUrl: './third-grade-operations.component.html'
 })
-export class ThirdGradeOperationsComponent implements OnInit {
-  @Output() counterChange = new EventEmitter<number>();
-  // tslint:disable-next-line:no-input-rename
-  @Input('counter') _counter: number;
-  set counter(value: number) {
-    this._counter = value;
-    this.counterChange.emit(this.counter);
+export class ThirdGradeOperationsComponent implements OnInit, OnDestroy {
+  private _subscriptions: Array<Subscription> = [];
+  counter: number;
+
+  constructor(private _store: Store<ICounterStore>) {}
+  ngOnInit() {
+    this._subscriptions
+      .push(this._store.select('counter').subscribe((counter: number) => this.counter = counter));
   }
-  get counter(): number {
-    return this._counter;
+  ngOnDestroy() {
+    this._subscriptions.forEach((subscription: Subscription) =>
+      subscription.unsubscribe()
+    );
   }
 
-  constructor() {}
-
-  ngOnInit() {}
+  reset() {
+    this._store.dispatch(new fromCounter.ResetAction());
+  }
 }
