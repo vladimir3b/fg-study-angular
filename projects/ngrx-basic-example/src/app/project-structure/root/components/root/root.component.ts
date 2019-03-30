@@ -6,10 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './root.component.html'
 })
 export class RootComponent implements OnInit {
-  private _message = 'NgRx basic example...';
-  get message(): string {
-    return this._message;
-  }
+  counter = 10;
 
   constructor() { }
   ngOnInit() { }
