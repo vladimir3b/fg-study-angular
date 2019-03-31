@@ -1,10 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import { ICounterStore } from '../../ngrx/counter.actions';
-import * as fromCounter from './../../ngrx/counter.actions';
-
+import { ManageDataService } from './../../services/manage-data.service';
 
 @Component({
   selector: 'fg-first-grade-operations',
@@ -14,20 +11,24 @@ export class FirstGradeOperationsComponent implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
   counter: number;
 
-  constructor(private _store: Store<ICounterStore>) { }
+  constructor(private _manageData: ManageDataService) {}
   ngOnInit() {
-    this._subscriptions
-      .push(this._store.select('counter').subscribe((counter: number) => this.counter = counter));
+    this._subscriptions.push(
+      this._manageData.getStoreValue.subscribe(
+        counter => (this.counter = counter.value)
+      )
+    );
   }
   ngOnDestroy() {
-    this._subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
+    this._subscriptions.forEach((subscription: Subscription) =>
+      subscription.unsubscribe()
+    );
   }
 
   increment(): void {
-    this._store.dispatch(new fromCounter.IncrementAction());
+    this._manageData.putData('increment');
   }
   decrement(): void {
-    this._store.dispatch(new fromCounter.DecrementAction());
+    this._manageData.putData('decrement');
   }
-
 }

@@ -1,3 +1,4 @@
+import { ManageDataService } from './services/manage-data.service';
 import { RootCounterComponent } from './components/root-counter/root-counter.component';
 import { NgModule } from '@angular/core';
 
@@ -16,6 +17,7 @@ import { FirstGradeOperationsComponent } from './components/first-grade-operatio
     ThirdGradeOperationsComponent
   ],
   imports: [ CounterRouter ],
-  exports: [ CounterRouter ]
+  exports: [ CounterRouter ],
+  providers: [ ManageDataService ]
 })
 export class CounterModule { }

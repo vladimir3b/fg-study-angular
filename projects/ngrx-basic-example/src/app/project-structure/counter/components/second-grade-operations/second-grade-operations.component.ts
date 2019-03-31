@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
-import { ICounterStore } from '../../ngrx/counter.actions';
-import * as fromCounter from './../../ngrx/counter.actions';
+import { ManageDataService } from './../../services/manage-data.service';
+
 
 @Component({
   selector: 'fg-second-grade-operations',
@@ -13,10 +12,13 @@ export class SecondGradeOperationsComponent implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
   counter: number;
 
-  constructor(private _store: Store<ICounterStore>) {}
+  constructor(private _manageData: ManageDataService) {}
   ngOnInit() {
-    this._subscriptions
-      .push(this._store.select('counter').subscribe((counter: number) => this.counter = counter));
+    this._subscriptions.push(
+      this._manageData.getStoreValue.subscribe(
+        counter => (this.counter = counter.value)
+      )
+    );
   }
   ngOnDestroy() {
     this._subscriptions.forEach((subscription: Subscription) =>
@@ -25,9 +27,9 @@ export class SecondGradeOperationsComponent implements OnInit, OnDestroy {
   }
 
   multiply(): void {
-    this._store.dispatch(new fromCounter.MultiplyAction(1.5));
+    this._manageData.putData('multiply');
   }
   divide(): void {
-    this._store.dispatch(new fromCounter.DivideAction(1.5));
+    this._manageData.putData('divide');
   }
 }
