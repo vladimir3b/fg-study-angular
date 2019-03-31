@@ -1,9 +1,5 @@
 import { Action } from '@ngrx/store';
 
-export interface ICounterStore {
-  counter: number;
-}
-
 export const INCREMENT = '[Counter] Increment';
 export const DECREMENT = '[Counter] Decrement';
 export const MULTIPLY = '[Counter] Multiply';

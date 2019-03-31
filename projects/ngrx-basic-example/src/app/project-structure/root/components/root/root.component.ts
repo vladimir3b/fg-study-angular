@@ -5,9 +5,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'fg-root',
   templateUrl: './root.component.html'
 })
-export class RootComponent implements OnInit {
-  counter = 10;
-
-  constructor() { }
-  ngOnInit() { }
-}
+export class RootComponent { }
