@@ -25,4 +25,8 @@ export class ResetAction implements Action {
   readonly type = RESET;
 }
 
-export type actions = IncrementAction | DecrementAction | MultiplyAction | DivideAction | ResetAction;
+export type actions =  IncrementAction |
+  DecrementAction |
+  MultiplyAction |
+  DivideAction |
+  ResetAction;

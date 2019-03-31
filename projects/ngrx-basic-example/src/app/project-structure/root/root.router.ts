@@ -1,8 +1,8 @@
-import { CounterRouter } from './../counter/counter.router';
-import { ManagePersonsRouter } from './../manage-persons/manage-persons.router';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { CounterRouter } from './../counter/counter.router';
+import { ManagePersonsRouter } from './../manage-persons/manage-persons.router';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
