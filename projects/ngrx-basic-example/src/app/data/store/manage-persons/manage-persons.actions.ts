@@ -1,10 +1,15 @@
 import { Action } from '@ngrx/store';
 import { IPersonModel } from '../../persons/person.model';
 
-interface IManagePersonsPayload {
-  person: IPersonModel;
-  personId: string;
+export interface IManagePersonsPayload {
+  person?: IPersonModel;
+  personId?: string;
 }
+
+export type operationType = 'add-person' |
+  'delete-person' |
+  'update-person' |
+  'delete-all-persons';
 
 export const ADD_NEW_PERSON = '[Manage-Persons] Add a new person';
 export const DELETE_PERSON = '[Manage-Persons] Delete a person';

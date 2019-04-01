@@ -1,5 +1,11 @@
 import { Action } from '@ngrx/store';
 
+export type operationType = 'increment' |
+  'decrement' |
+  'multiply' |
+  'divide' |
+  'reset';
+
 export const INCREMENT = '[Counter] Increment';
 export const DECREMENT = '[Counter] Decrement';
 export const MULTIPLY = '[Counter] Multiply';

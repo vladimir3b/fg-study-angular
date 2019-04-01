@@ -15,7 +15,7 @@ export class FirstGradeOperationsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._subscriptions.push(
       this._manageData.getStoreValue.subscribe(
-        counter => (this.counter = counter.value)
+        counter => this.counter = counter.value
       )
     );
   }

@@ -1,10 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Injectable } from '@angular/core';
 
 import * as fromRoot from './../../../data/store/root.reducer';
 import * as fromCounter from './../../../data/store/counter/counter.actions';
-import { Store } from '@ngrx/store';
-
-type operationType = 'increment' | 'decrement' | 'multiply' | 'divide' | 'reset';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +12,7 @@ export class ManageDataService {
 
   constructor(private _store: Store<fromRoot.IState>) {}
 
-  putData(operation: operationType): void {
+  putData(operation: fromCounter.operationType): void {
     switch (operation) {
       case 'increment':
         this._store.dispatch(new fromCounter.IncrementAction());

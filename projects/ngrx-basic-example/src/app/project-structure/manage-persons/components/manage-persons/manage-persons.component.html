@@ -1,1 +1,30 @@
-Manage Persons Component is working ...
+<div class="container">
+  <div class="row">
+    <div class="col">&nbsp;</div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="onPopulateList()"
+          class="btn btn-sm btn-outline-success">
+        Populate list...
+      </button>
+    </div>
+    <div class="col">
+      <button (click)="onClearList()"
+          class="btn btn-sm btn-outline-danger">
+        Clear list...
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let person of persons"
+          class="alert alert-info">
+        <pre>
+          {{person | json}}
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+
