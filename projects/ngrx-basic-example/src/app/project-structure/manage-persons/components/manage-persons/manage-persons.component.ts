@@ -7,7 +7,8 @@ import { PERSONS } from './../../../../data/persons/persons.data';
 
 @Component({
   selector: 'fg-manage-persons',
-  templateUrl: './manage-persons.component.html'
+  templateUrl: './manage-persons.component.html',
+  styleUrls: ['./manage-persons.component.scss']
 })
 export class ManagePersonsComponent implements OnInit, OnDestroy {
   private _subscriptions: Array<Subscription> = [];
@@ -33,5 +34,7 @@ export class ManagePersonsComponent implements OnInit, OnDestroy {
   onClearList(): void {
     PERSONS.forEach((person: IPersonModel) => this._manageData.putData('delete-all-persons'));
   }
-
+  onDeletePerson(personId: string): void {
+    this._manageData.putData('delete-person', { personId })
+  }
 }
