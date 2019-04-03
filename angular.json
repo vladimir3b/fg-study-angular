@@ -46,6 +46,9 @@
               "projects/basic-template/src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "projects/basic-template/src/app/static-resources/styles/styles.scss"
             ],
             "scripts": [],
@@ -102,7 +105,12 @@
             "polyfills": "projects/basic-template/src/polyfills.ts",
             "tsConfig": "projects/basic-template/tsconfig.spec.json",
             "karmaConfig": "projects/basic-template/karma.conf.js",
-            "styles": ["projects/basic-template/src/styles.scss"],
+            "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
+              "projects/basic-template/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "projects/basic-template/src/favicon.ico",
@@ -113,8 +121,12 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/basic-template/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "projects/basic-template/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -218,7 +230,9 @@
             "polyfills": "projects/ngrx-basic-example/src/polyfills.ts",
             "tsConfig": "projects/ngrx-basic-example/tsconfig.spec.json",
             "karmaConfig": "projects/ngrx-basic-example/karma.conf.js",
-            "styles": ["projects/ngrx-basic-example/src/styles.scss"],
+            "styles": [
+              "projects/ngrx-basic-example/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "projects/ngrx-basic-example/src/favicon.ico",
@@ -229,8 +243,12 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/ngrx-basic-example/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "projects/ngrx-basic-example/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -334,7 +352,9 @@
             "polyfills": "projects/to-do-app/src/polyfills.ts",
             "tsConfig": "projects/to-do-app/tsconfig.spec.json",
             "karmaConfig": "projects/to-do-app/karma.conf.js",
-            "styles": ["projects/to-do-app/src/styles.scss"],
+            "styles": [
+              "projects/to-do-app/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "projects/to-do-app/src/favicon.ico",
@@ -345,8 +365,12 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["projects/to-do-app/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**"]
+            "tsConfig": [
+              "projects/to-do-app/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
