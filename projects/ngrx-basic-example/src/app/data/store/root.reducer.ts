@@ -5,7 +5,6 @@ import { ActionReducerMap } from '@ngrx/store';
 export interface IState {
   counter: fromCounter.IState;
   managePersons: fromManagePersons.IState;
-
 }
 
 export const REDUCERS: ActionReducerMap<IState> = {

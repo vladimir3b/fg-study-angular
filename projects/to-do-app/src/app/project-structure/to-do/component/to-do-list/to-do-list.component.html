@@ -1,3 +1,5 @@
 <ul class="todo-list">
-  <fg-to-do-item></fg-to-do-item>
+  <fg-to-do-item [toDo]="toDo"
+      *ngFor='let toDo of toDoList'>
+  </fg-to-do-item>
 </ul>

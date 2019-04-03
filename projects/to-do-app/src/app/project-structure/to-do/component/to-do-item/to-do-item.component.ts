@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { IToDoModel } from 'projects/to-do-app/src/app/data/models/to-do.model';
 
 @Component({
   selector: 'fg-to-do-item',
@@ -6,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ToDoItemComponent implements OnInit {
+  @Input() toDo: IToDoModel;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
