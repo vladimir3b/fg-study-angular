@@ -350,6 +350,128 @@
           }
         }
       }
+    },
+    "kendo-scheduler": {
+      "root": "projects/kendo-scheduler/",
+      "sourceRoot": "projects/kendo-scheduler/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/kendo-scheduler",
+            "index": "projects/kendo-scheduler/src/app/static-resources/index.html",
+            "main": "projects/kendo-scheduler/src/app/app.ts",
+            "polyfills": "projects/kendo-scheduler/src/polyfills.ts",
+            "tsConfig": "projects/kendo-scheduler/tsconfig.app.json",
+            "assets": [
+              "projects/kendo-scheduler/src/favicon.ico",
+              "projects/kendo-scheduler/src/assets"
+            ],
+            "styles": [
+              "projects/kendo-scheduler/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/kendo-scheduler/src/environments/environment.ts",
+                  "with": "projects/kendo-scheduler/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "kendo-scheduler:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "kendo-scheduler:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "kendo-scheduler:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kendo-scheduler/src/test.ts",
+            "polyfills": "projects/kendo-scheduler/src/polyfills.ts",
+            "tsConfig": "projects/kendo-scheduler/tsconfig.spec.json",
+            "karmaConfig": "projects/kendo-scheduler/karma.conf.js",
+            "styles": [
+              "projects/kendo-scheduler/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/kendo-scheduler/src/favicon.ico",
+              "projects/kendo-scheduler/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kendo-scheduler/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "basic-template"
