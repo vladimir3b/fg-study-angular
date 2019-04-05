@@ -13,10 +13,17 @@ export class ManageDataService {
 
   constructor(private _store: Store<fromRoot.IRootState>) { }
 
-  putData(operation: fromToDo.operationType, payload?: string): void {
-    switch(operation) {
+  putData(operation: fromToDo.operationType, payload?: any): void {
+    // this is NOT OK, payload must not be any, it is a conceptual error
+    switch (operation) {
       case 'add':
         this._store.dispatch(new fromToDo.AddToDoAction(payload));
+        break;
+      case 'toggle':
+        this._store.dispatch(new fromToDo.ToggleToDoAction(payload));
+        break;
+      case 'change':
+        this._store.dispatch(new fromToDo.ChangeToDoAction(payload));
         break;
     }
   }
