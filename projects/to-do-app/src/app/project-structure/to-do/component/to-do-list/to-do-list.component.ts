@@ -1,7 +1,8 @@
+import { Store } from '@ngrx/store';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { ManageDataService } from './../../services/manage-data.service';
 import { Subscription } from 'rxjs';
+import * as fromRoot from './../../../../data/store/root.reducer';
 import { IToDoModel } from 'projects/to-do-app/src/app/data/models/to-do.model';
 
 @Component({
@@ -13,11 +14,11 @@ export class ToDoListComponent implements OnInit, OnDestroy {
   subscriptions: Array<Subscription> = [];
   toDoList: Array<IToDoModel>
 
-  constructor(private _manageData: ManageDataService) { }
+  constructor(private _store: Store<fromRoot.IRootState>) { }
 
   ngOnInit() {
     this.subscriptions.push(
-      this._manageData.getStoreValue.subscribe(toDo => this.toDoList = toDo.toDoEvents)
+      this._store.select('toDo').subscribe(toDo => this.toDoList = toDo.toDoEvents)
     );
   }
   ngOnDestroy() {

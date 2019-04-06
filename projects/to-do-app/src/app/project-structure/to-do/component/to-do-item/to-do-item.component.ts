@@ -1,3 +1,4 @@
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import {
   Component,
@@ -10,7 +11,8 @@ import {
 import { FormControl, Validators } from '@angular/forms';
 
 import { IToDoModel } from 'projects/to-do-app/src/app/data/models/to-do.model';
-import { ManageDataService } from './../../services/manage-data.service';
+import * as fromRoot from './../../../../data/store/root.reducer';
+import * as fromToDo from './../../../../data/store/to-do/to-do.actions';
 
 @Component({
   selector: 'fg-to-do-item',
@@ -25,14 +27,14 @@ export class ToDoItemComponent implements OnInit, OnDestroy {
   checkInput: FormControl;
   textInput: FormControl;
 
-  constructor(private _manageData: ManageDataService) {}
+  constructor(private _store: Store<fromRoot.IRootState>) { }
 
   ngOnInit() {
     this.checkInput = new FormControl(this.toDo.completed);
     this.textInput = new FormControl(this.toDo.text, Validators.required);
     this._subscriptions.push(
       this.checkInput.valueChanges.subscribe(() =>
-        this._manageData.putData('toggle', this.toDo.id)
+        this._store.dispatch(new fromToDo.ToggleToDoAction(this.toDo.id))
       )
     );
   }
@@ -48,10 +50,10 @@ export class ToDoItemComponent implements OnInit, OnDestroy {
   unFocus(save: boolean = false): void {
     this.editingToDo = false;
     if (save && this.textInput.valid && this.textInput.value !== this.toDo.text) {
-      this._manageData.putData('change', {
+      this._store.dispatch(new fromToDo.ChangeToDoAction({
         id: this.toDo.id,
         text: this.textInput.value
-      });
+      }));
     } else {
       this.textInput.setValue(this.toDo.text);
     }
