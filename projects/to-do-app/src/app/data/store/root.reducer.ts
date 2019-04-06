@@ -1,11 +1,13 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { ToDo } from './../models/to-do.model';
 import * as fromToDo from './to-do/to-do.reducer';
+import * as fromFilter from './filter/filter.reducer';
 
 export interface IRootState {
-  toDo: fromToDo.IState;
+  toDo: fromToDo.IToDoState;
+  filter: fromFilter.IFilterState;
 }
 
 export const REDUCERS: ActionReducerMap<IRootState> = {
-  toDo: fromToDo.toDoReducer
+  toDo: fromToDo.toDoReducer,
+  filter: fromFilter.filterReducer
 };

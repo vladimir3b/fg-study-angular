@@ -47,6 +47,9 @@ export class ToDoItemComponent implements OnInit, OnDestroy {
     // It MUST be a setTimeout here otherwise it won't select!
     setTimeout(() => this.textInputField.nativeElement.select());
   }
+  delete(): void {
+    this._store.dispatch(new fromToDo.DeleteToDoAction(this.toDo.id));
+  }
   unFocus(save: boolean = false): void {
     this.editingToDo = false;
     if (save && this.textInput.valid && this.textInput.value !== this.toDo.text) {

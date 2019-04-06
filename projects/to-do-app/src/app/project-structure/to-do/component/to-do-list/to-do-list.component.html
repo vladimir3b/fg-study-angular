@@ -1,5 +1,5 @@
 <ul class="todo-list">
   <fg-to-do-item [toDo]="toDo"
-      *ngFor='let toDo of toDoList'>
+      *ngFor='let toDo of toDoList | filterToDo: selectedFilter'>
   </fg-to-do-item>
 </ul>

@@ -6,6 +6,7 @@ import { ToDoItemComponent } from './component/to-do-item/to-do-item.component';
 import { ToDoFooterComponent } from './component/to-do-footer/to-do-footer.component';
 import { ToDoAddComponent } from './component/to-do-add/to-do-add.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterToDoPipe } from './pipes/filter-to-do.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToDoListComponent,
     ToDoItemComponent,
     ToDoFooterComponent,
-    ToDoAddComponent
+    ToDoAddComponent,
+    FilterToDoPipe
   ],
   imports: [
     CommonModule,
