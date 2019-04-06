@@ -1,0 +1,46 @@
+<kendo-scheduler *ngIf="refresh; else  loadingKendoScheduler"
+    startTime="07:00"
+    [kendoSchedulerBinding]="events"
+    [kendoSchedulerReactiveEditing]="createFormGroup"
+    [selectedDate]="selectedDate"
+    [(selectedViewIndex)]="selectViewIndex"
+    style="height: 600px;">
+  <kendo-scheduler-day-view>
+  </kendo-scheduler-day-view>
+
+  <kendo-scheduler-week-view>
+  </kendo-scheduler-week-view>
+
+  <kendo-scheduler-month-view>
+  </kendo-scheduler-month-view>
+
+  <kendo-scheduler-timeline-view>
+  </kendo-scheduler-timeline-view>
+
+  <kendo-scheduler-agenda-view>
+  </kendo-scheduler-agenda-view>
+</kendo-scheduler>
+
+<ng-template #loadingKendoScheduler>
+  <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      style="height: 600px;">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-primary"
+          (click)="showAllEvents()">
+        Show all events...
+      </button>
+      <button class="btn btn-danger"
+          (click)="changeEventTitle()">
+        Change event title
+      </button>
+    </div>
+  </div>
+</div>

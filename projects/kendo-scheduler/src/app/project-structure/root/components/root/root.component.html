@@ -1,25 +1,12 @@
-<kendo-scheduler [kendoSchedulerBinding]="events"
-    [kendoSchedulerReactiveEditing]="createFormGroup"
-    [selectedDate]="selectedDate"
-    style="height: 600px;">
-
-  <kendo-scheduler-week-view startTime="07:00">
-  </kendo-scheduler-week-view>
-
-  <kendo-scheduler-month-view [eventHeight]="30">
-  </kendo-scheduler-month-view>
-</kendo-scheduler>
 <div class="container">
   <div class="row">
-    <div class="col text-center">
-      <button class="btn btn-primary"
-          (click)="showAllEvents()">
-        Show all events...
-      </button>
-      <button class="btn btn-danger"
-          (click)="changeEventTitle()">
-        Change event title
-      </button>
+    <div class="col">
+      <fg-select (dataChanger)="onReceivedDate($event)"></fg-select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <fg-scheduler [selectedDate]="selectedDate"></fg-scheduler>
     </div>
   </div>
 </div>
