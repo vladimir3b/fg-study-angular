@@ -1,14 +1,15 @@
+import { RANDOM_TITLES } from './random-titles';
 import {
   Component,
-  ChangeDetectorRef,
   Input,
   Output,
   EventEmitter,
-  OnInit
+  OnInit,
+  OnDestroy
 } from '@angular/core';
-import { SchedulerEvent, CreateFormGroupArgs } from '@progress/kendo-angular-scheduler';
+import { SchedulerEvent, CreateFormGroupArgs, RemoveEvent } from '@progress/kendo-angular-scheduler';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'fg-scheduler',
@@ -19,7 +20,8 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
     }
   `]
 })
-export class SchedulerComponent implements OnInit {
+export class SchedulerComponent implements OnInit, OnDestroy {
+  private _subscriptions: Array<Subscription> = [];
   @Input() selectedDate: Date;
   // tslint:disable-next-line:no-output-rename
   @Output('events') eventsEmitter: EventEmitter<Array<SchedulerEvent>> = new EventEmitter();
@@ -28,14 +30,17 @@ export class SchedulerComponent implements OnInit {
   formGroup: FormGroup;
   events: Array<SchedulerEvent> = [];
 
-  constructor(
-    private _formBuilder: FormBuilder,
-    private _cd: ChangeDetectorRef) {
+  constructor(private _formBuilder: FormBuilder) {
     this.createFormGroup = this.createFormGroup.bind(this);
   }
 
   ngOnInit(): void {
-    // this.events
+    interval(100000).subscribe(() => {
+      this.updateRandomEvent();
+    });
+  }
+  ngOnDestroy(): void {
+    this._subscriptions.forEach(subscription => subscription.unsubscribe());
   }
 
   createFormGroup(args: CreateFormGroupArgs): FormGroup {
@@ -48,7 +53,7 @@ export class SchedulerComponent implements OnInit {
       startTimezone: [dataItem.startTimezone],
       endTimezone: [dataItem.endTimezone],
       isAllDay: dataItem.isAllDay,
-      title: dataItem.title,
+      title: [dataItem.title, Validators.required],
       description: dataItem.description,
       recurrenceRule: dataItem.recurrenceRule,
       recurrenceId: dataItem.recurrenceId
@@ -60,16 +65,25 @@ export class SchedulerComponent implements OnInit {
     const len = this.events.length;
     return (len === 0) ? 1 : this.events[this.events.length - 1].id + 1;
   }
-  showAllEvents(): void {
-    console.log(this.events);
+  updateRandomEvent(): void {
+    if (this.events.length) {
+      const index = Math.floor(Math.random() * this.events.length);
+      this.events[index].title = RANDOM_TITLES[Math.floor(Math.random() * RANDOM_TITLES.length)];
+      this.onExternalEventsChange();
+      // this.onEventsChanged();
+    }
   }
-  changeEventTitle(): void {
+  onExternalEventsChange() {
     this.refresh = false;
-    setTimeout(() => this.refresh = true, 1000);
-    this.events[0].title = 'Title changed';
-    this._cd.detectChanges();
+    setTimeout(() => this.refresh = true, 10000);
   }
-  onSave(): void {
-    console.log('Event saved...');
+  onAddEvent($event: any): void {
+    setTimeout(() => this.eventsEmitter.emit(this.events), 10); // This is not alright at all and can cause problems
+  }
+  onRemoveEvent($event: RemoveEvent): void {
+    this._subscriptions.push(
+      $event.sender.removeConfirmed
+        .subscribe(answer => console.log(answer))
+    );
   }
 }
