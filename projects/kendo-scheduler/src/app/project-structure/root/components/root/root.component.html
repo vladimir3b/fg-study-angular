@@ -6,7 +6,9 @@
   </div>
   <div class="row">
     <div class="col">
-      <fg-scheduler [selectedDate]="selectedDate"></fg-scheduler>
+      <fg-scheduler [selectedDate]="selectedDate"
+          (events)="updateEvents($events)">
+      </fg-scheduler>
     </div>
   </div>
 </div>

@@ -1,4 +1,11 @@
-import { Component, ChangeDetectorRef, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectorRef,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit
+} from '@angular/core';
 import { SchedulerEvent, CreateFormGroupArgs } from '@progress/kendo-angular-scheduler';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
@@ -12,10 +19,12 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
     }
   `]
 })
-export class SchedulerComponent {
+export class SchedulerComponent implements OnInit {
+  @Input() selectedDate: Date;
+  // tslint:disable-next-line:no-output-rename
+  @Output('events') eventsEmitter: EventEmitter<Array<SchedulerEvent>> = new EventEmitter();
   refresh = true;
   selectViewIndex = 0;
-  @Input() selectedDate: Date;
   formGroup: FormGroup;
   events: Array<SchedulerEvent> = [];
 
@@ -23,6 +32,10 @@ export class SchedulerComponent {
     private _formBuilder: FormBuilder,
     private _cd: ChangeDetectorRef) {
     this.createFormGroup = this.createFormGroup.bind(this);
+  }
+
+  ngOnInit(): void {
+    // this.events
   }
 
   createFormGroup(args: CreateFormGroupArgs): FormGroup {
@@ -55,5 +68,8 @@ export class SchedulerComponent {
     setTimeout(() => this.refresh = true, 1000);
     this.events[0].title = 'Title changed';
     this._cd.detectChanges();
+  }
+  onSave(): void {
+    console.log('Event saved...');
   }
 }

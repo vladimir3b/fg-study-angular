@@ -1,5 +1,6 @@
 <kendo-scheduler *ngIf="refresh; else  loadingKendoScheduler"
     startTime="07:00"
+    (save)="onSave()"
     [kendoSchedulerBinding]="events"
     [kendoSchedulerReactiveEditing]="createFormGroup"
     [selectedDate]="selectedDate"
