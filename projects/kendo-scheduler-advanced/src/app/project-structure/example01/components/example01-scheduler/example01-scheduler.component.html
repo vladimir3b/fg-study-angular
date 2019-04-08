@@ -1,3 +1,20 @@
-<p>
-  example01-scheduler works!
-</p>
+<kendo-scheduler [kendoSchedulerBinding]="events"
+    [resources]="resources"
+    [kendoSchedulerReactiveEditing]="createFormGroup"
+    [selectedDate]="selectedDate"
+    style="height: 600px;">
+  <kendo-scheduler-day-view>
+  </kendo-scheduler-day-view>
+
+  <kendo-scheduler-week-view>
+  </kendo-scheduler-week-view>
+
+  <kendo-scheduler-month-view>
+  </kendo-scheduler-month-view>
+
+  <kendo-scheduler-timeline-view>
+  </kendo-scheduler-timeline-view>
+
+  <kendo-scheduler-agenda-view>
+  </kendo-scheduler-agenda-view>
+</kendo-scheduler>

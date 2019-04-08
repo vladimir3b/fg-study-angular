@@ -7,7 +7,6 @@ import { Example02Router } from '../example02/example02.router';
 import { Example03Router } from '../example03/example03.router';
 import { Example04Router } from '../example04/example04.router';
 
-
 const ROUTER: Routes = [
   {
     path: '404',
