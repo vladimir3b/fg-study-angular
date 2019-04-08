@@ -1,12 +1,8 @@
+<fg-navigation></fg-navigation>
 <div class="container">
   <div class="row">
-    <div [ngClass]="[
-        'col',
-        'alert',
-        'alert-info',
-        'text-center'
-    ]">
-      <h1>{{ message }}</h1>
+    <div class="col">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

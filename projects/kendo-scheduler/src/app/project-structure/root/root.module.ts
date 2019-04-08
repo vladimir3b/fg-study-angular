@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SchedulerModule } from '@progress/kendo-angular-scheduler';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from '../../../../../.common/material.module';
 import { RootComponent } from './components/root/root.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
