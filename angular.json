@@ -496,6 +496,128 @@
           }
         }
       }
+    },
+    "kendo-scheduler-advanced": {
+      "root": "projects/kendo-scheduler-advanced/",
+      "sourceRoot": "projects/kendo-scheduler-advanced/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/kendo-scheduler-advanced",
+            "index": "projects/kendo-scheduler-advanced/src/app/static-resources/index.html",
+            "main": "projects/kendo-scheduler-advanced/src/app/app.ts",
+            "polyfills": "projects/kendo-scheduler-advanced/src/polyfills.ts",
+            "tsConfig": "projects/kendo-scheduler-advanced/tsconfig.app.json",
+            "assets": [
+              "projects/kendo-scheduler-advanced/src/favicon.ico",
+              "projects/kendo-scheduler-advanced/src/assets"
+            ],
+            "styles": [
+              "projects/kendo-scheduler-advanced/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/kendo-scheduler-advanced/src/environments/environment.ts",
+                  "with": "projects/kendo-scheduler-advanced/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "kendo-scheduler-advanced:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "kendo-scheduler-advanced:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "kendo-scheduler-advanced:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kendo-scheduler-advanced/src/test.ts",
+            "polyfills": "projects/kendo-scheduler-advanced/src/polyfills.ts",
+            "tsConfig": "projects/kendo-scheduler-advanced/tsconfig.spec.json",
+            "karmaConfig": "projects/kendo-scheduler-advanced/karma.conf.js",
+            "styles": [
+              "projects/kendo-scheduler-advanced/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/kendo-scheduler-advanced/src/favicon.ico",
+              "projects/kendo-scheduler-advanced/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kendo-scheduler-advanced/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "basic-template"
