@@ -26,7 +26,6 @@ export class Example01SchedulerComponent  {
 
   public createFormGroup(args: CreateFormGroupArgs): FormGroup {
     const dataItem = args.dataItem;
-
     this.formGroup = this._formBuilder.group({
       id: args.isNew ? this.getNextId() : dataItem.id,
       start: [dataItem.start, Validators.required],
