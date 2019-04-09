@@ -1,4 +1,8 @@
 <kendo-scheduler [kendoSchedulerBinding]="events"
+    (save)="onEventsChanged()"
+    (remove)="onEventsChanged()"
+    (dragEnd)="onEventsChanged()"
+    (resizeEnd)="onEventsChanged()"
     [resources]="resources"
     [kendoSchedulerReactiveEditing]="createFormGroup"
     [selectedDate]="selectedDate"
@@ -18,3 +22,8 @@
   <kendo-scheduler-agenda-view>
   </kendo-scheduler-agenda-view>
 </kendo-scheduler>
+
+<button class="btn btn-info"
+    (click)="changeRandomEvent()">
+  Change random event...
+</button>
