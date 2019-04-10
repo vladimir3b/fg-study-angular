@@ -1,3 +1,4 @@
+import { MaterialModule } from './../../../../../.common/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,6 +14,7 @@ import { Example01SchedulerComponent } from './components/example01-scheduler/ex
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     KendoModule
   ],
   providers: [ ManageEventsService ]
