@@ -1,0 +1,55 @@
+<form novalidate
+  (ngSubmit)="onSubmit()"
+  [formGroup]="newTaskForm" >
+
+  <div class="mb-2">
+    <mat-form-field>
+      <input
+          matInput
+          formControlName="title"
+          placeholder="What do you want to do?">
+    </mat-form-field>
+    <mat-slide-toggle #more>more...</mat-slide-toggle>
+  </div>
+  <div *ngIf="more.checked" class="mt-2">
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="start"
+        [min]="today"
+        [matDatepicker]="start"
+        placeholder="Starting date...">
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+          matInput
+          [disabled]="newTaskForm."
+          formControlName="end"
+          [matDatepicker]="end"
+          placeholder="Ending date...">
+      <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+      <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+    <span class="label">Priority</span>&nbsp;
+    <mat-slider
+        #priority
+        formControlName="priority"
+        min="1"
+        max="5"
+        step="1"
+        [thumbLabel]="true"
+        tickInterval="1">
+    </mat-slider>
+  </div>
+  <div class="text-right">
+    <button mat-raised-button
+        [disabled]="newTaskForm.invalid"
+        type="submit"
+        color="primary">
+      Add task
+    </button>
+  </div>
+
+</form>
