@@ -1,3 +1,7 @@
+<!-- @TODO
+  * activate ending date after reading starting date
+  * ending date must be al least equal to the starting date
+-->
 <form novalidate
   (ngSubmit)="onSubmit()"
   [formGroup]="newTaskForm" >
@@ -25,7 +29,7 @@
     <mat-form-field>
       <input
           matInput
-          [disabled]="newTaskForm."
+          [min]="today"
           formControlName="end"
           [matDatepicker]="end"
           placeholder="Ending date...">
