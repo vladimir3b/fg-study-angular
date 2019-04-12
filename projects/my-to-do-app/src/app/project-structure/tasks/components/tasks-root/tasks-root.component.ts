@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tasks-root.component.html',
   styles: [`
     .container {
-      max-width: 640px;
+      max-width: 800px;
     }
   `]
 })

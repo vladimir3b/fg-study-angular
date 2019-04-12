@@ -49,7 +49,7 @@
   </div>
   <div class="text-right">
     <button mat-raised-button
-        [disabled]="newTaskForm.invalid"
+        *ngIf="newTaskForm.valid"
         type="submit"
         color="primary">
       Add task

@@ -1,6 +1,6 @@
-type priorityType = 1 | 2 | 3 | 4 | 5;
+export type priorityType = 1 | 2 | 3 | 4 | 5;
 
-interface ITaskModel {
+export interface ITaskModel {
   id: string;
   title: string;
   completed: boolean;
