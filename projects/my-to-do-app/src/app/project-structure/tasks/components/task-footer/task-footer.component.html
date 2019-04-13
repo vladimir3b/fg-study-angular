@@ -1,3 +1,26 @@
-<p>
-  task-footer works!
-</p>
+<div  fxLayout="row"
+    class="mb-4 mt-3 mr-3 ml-3"
+    fxLayoutAlign="space-between center">
+  <div>
+     10 item(s) left
+  </div>
+  <div fxLayout="row"
+    fxLayoutGap="1rem"
+    fxLayoutAlign="space-between center">
+    <button mat-stroked-button
+        color="primary">
+      all
+    </button>
+    <button mat-stroked-button
+        color="primary">
+      active
+    </button>
+    <button mat-stroked-button
+        color="primary">
+      completed
+    </button>
+  </div>
+  <button class="btn btn-sm btn-outline-danger">
+    clear completed
+  </button>
+</div>
