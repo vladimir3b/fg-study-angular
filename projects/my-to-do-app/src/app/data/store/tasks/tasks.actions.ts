@@ -10,11 +10,29 @@ export const DELETE_COMPLETED_TASKS = '[TASKS] Delete completed tasks';
 
 export class AddTaskAction implements Action {
   readonly type = ADD_TASK;
-  constructor(public payload: ITaskModel) {}
+  constructor(public payload: { task: ITaskModel }) {}
 }
-
-export class ToggleCompletedTask implements Action {
+export class ToggleCompletedTaskAction implements Action {
   readonly type = TOGGLE_COMPLETED_TASK;
-  constructor(public payload: string) { }
+  constructor(public payload: { id: string }) { }
+}
+export class UpdateTaskAction implements Action {
+  readonly type = UPDATE_TASK;
+  constructor(public payload: {
+    id: string;
+    task: ITaskModel
+  }) {}
+}
+export class DeleteTaskAction implements Action {
+  readonly type = DELETE_TASK;
+  constructor(public payload: { id: string }) { }
+}
+export class DeleteCompletedTasksAction implements Action {
+  readonly type = DELETE_COMPLETED_TASKS;
 }
 
+export type actions = AddTaskAction |
+  ToggleCompletedTaskAction |
+  UpdateTaskAction |
+  DeleteTaskAction |
+  DeleteCompletedTasksAction;

@@ -1,9 +1,11 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-export interface IAppReducer {
-  tasks: fromToDo.IToDoState;
+import * as fromTasks from './tasks/tasks.reducer';
+
+export interface IAppState {
+  tasks: fromTasks.ITasksState;
 }
 
-export const REDUCERS: ActionReducerMap<IAppReducer> = {
-  tasks: fromToDo.toDoReducer,
+export const REDUCERS: ActionReducerMap<IAppState> = {
+  tasks: fromTasks.tasksReducer
 };

@@ -3,7 +3,8 @@
   <div fxLayout="row"
       fxLayoutGap="2rem"
       fxLayoutAlign="space-between center" >
-    <button mat-icon-button color="primary">
+    <button mat-icon-button color="primary"
+        (click)="toggleCompleted()" >
       <mat-icon *ngIf="task.completed">check_box</mat-icon>
       <mat-icon *ngIf="!task.completed">check_box_outline_blank</mat-icon>
     </button>
@@ -17,6 +18,7 @@
   </div>
 
   <button mat-icon-button
+      (click)="deleteTask()"
       class="delete-button">
     <mat-icon>close</mat-icon>
   </button>

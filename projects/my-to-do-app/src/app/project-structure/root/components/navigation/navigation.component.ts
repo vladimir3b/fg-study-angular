@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 export class NavigationComponent {
   navigationLink = [
     {
-      path: 'example01',
-      label: 'Example 1'
+      path: 'tasks',
+      label: 'Tasks'
+    },
+    {
+      path: 'scheduler',
+      label: 'Scheduler'
     }
   ];
 }

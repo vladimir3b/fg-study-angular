@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import * as fromRoot from './../../../../data/store/app.reducer';
+import * as fromTasks from './../../../../data/store/tasks/tasks.actions';
+import { MatSlideToggle } from '@angular/material';
 
 @Component({
   selector: 'fg-new-task',
@@ -14,10 +19,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   `]
 })
 export class NewTaskComponent implements OnInit {
+  @ViewChild('more') toggleMore: MatSlideToggle;
   today = new Date();
   newTaskForm: FormGroup;
 
-  constructor() { }
+  constructor(private _store: Store<fromRoot.IAppState>) { }
 
   ngOnInit() {
     this.newTaskForm = new FormGroup({
@@ -30,8 +36,20 @@ export class NewTaskComponent implements OnInit {
 
   onSubmit(): void {
     if (this.newTaskForm.valid) {
-      console.log(this.newTaskForm.value);
+      this._store.dispatch(new fromTasks.AddTaskAction({
+        task: {
+          id: `${Math.random()}`,
+          title: this.newTaskForm.value.title,
+          start: this.newTaskForm.value.start,
+          end: this.newTaskForm.value.end,
+          priority: this.newTaskForm.value.priority,
+          completed: false
+        }
+      }));
+      this.newTaskForm.reset(); // I don't know why it emphasizes title as it had an error...
+      this.toggleMore.checked = false;
     }
   }
 
 }
+;

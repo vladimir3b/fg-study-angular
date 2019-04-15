@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SchedulerRouter } from './../scheduler/scheduler.router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TasksRouter } from '../tasks/tasks.router';
 
@@ -19,6 +20,7 @@ const ROUTER: Routes = [
 @NgModule({
   imports: [
     TasksRouter,
+    SchedulerRouter,
     RouterModule.forRoot(ROUTER)
   ],
   exports: [ RouterModule ]
