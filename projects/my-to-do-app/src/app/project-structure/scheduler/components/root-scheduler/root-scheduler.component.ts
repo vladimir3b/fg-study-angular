@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SchedulerEvent, CreateFormGroupArgs } from '@progress/kendo-angular-scheduler';
+import { SchedulerEvent, CreateFormGroupArgs, SaveEvent, RemoveEvent } from '@progress/kendo-angular-scheduler';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import '@progress/kendo-date-math/tz/regions/Europe';
 import '@progress/kendo-date-math/tz/regions/NorthAmerica';
 import * as fromRoot from './../../../../data/store/app.reducer';
+import * as fromTasks from './../../../../data/store/tasks/tasks.actions';
 
 
 @Component({
@@ -30,11 +31,12 @@ export class RootSchedulerComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._subscriptions.push(this._store.select('tasks').subscribe(state => {
       this.events = [];
-      state.taskEvents.forEach(task => task.start ? this.events.push({
+      state.taskEvents.forEach(task => (task.start && !task.completed) ? this.events.push({
         id: task.id,
         title: task.title,
         start: task.start,
-        end: task.end || task.start
+        end: task.end || task.start,
+        isAllDay: true
       }) : null);
     }));
   }
@@ -61,11 +63,45 @@ export class RootSchedulerComponent implements OnInit, OnDestroy {
 
     return this.formGroup;
   }
-
   getNextId(): number {
     const len = this.events.length;
     return (len === 0) ? 1 : this.events[this.events.length - 1].id + 1;
   }
+  onSave($event: SaveEvent) {
+    // console.log($event);
+    if ($event.formGroup.valid) {
+      if ($event.formGroup.value.isAllDay) {
+        if ($event.isNew) {
+          this._store.dispatch(new fromTasks.AddTaskAction({
+            task: {
+              id: $event.formGroup.value.id,
+              title: $event.formGroup.value.title,
+              start: $event.formGroup.value.start,
+              end: $event.formGroup.value.end,
+              completed: false,
+              priority: 1
+            }
+          }));
+        } else {
+          console.log($event.formGroup.value.title);
+          this._store.dispatch(new fromTasks.UpdateTaskAction({
+            id: $event.formGroup.value.id,
+            task: {
+              id: $event.formGroup.value.id,
+              title: $event.formGroup.value.title,
+              start: $event.formGroup.value.start,
+              end: $event.formGroup.value.end,
+              completed: false
+            }
+          }));
+        }
+      }
+    }
+  }
+  onDelete($event: RemoveEvent) {
+    $event.sender.cancel.subscribe(respond => console.log('cacat'));
+  }
+
 
 }
 

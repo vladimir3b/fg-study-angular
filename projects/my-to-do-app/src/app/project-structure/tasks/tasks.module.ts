@@ -8,6 +8,7 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
 import { ListTasksComponent } from './components/list-tasks/list-tasks.component';
 import { TaskFooterComponent } from './components/task-footer/task-footer.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     ListTasksComponent,
     TaskFooterComponent,
     TaskItemComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
