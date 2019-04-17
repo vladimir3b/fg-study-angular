@@ -1,6 +1,5 @@
 <kendo-scheduler [kendoSchedulerBinding]="events"
-    (save)="onSave($event)"
-    (remove)="onDelete($event)"
+    [editService]="editService"
     [resources]="resources"
     [kendoSchedulerReactiveEditing]="createFormGroup"
     [selectedDate]="selectedDate"

@@ -8,6 +8,7 @@ import '@progress/kendo-date-math/tz/regions/Europe';
 import '@progress/kendo-date-math/tz/regions/NorthAmerica';
 import * as fromRoot from './../../../../data/store/app.reducer';
 import * as fromTasks from './../../../../data/store/tasks/tasks.actions';
+import { EditService } from '../../services/edit.service';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class RootSchedulerComponent implements OnInit, OnDestroy {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _store: Store<fromRoot.IAppState>
+    private _store: Store<fromRoot.IAppState>,
+    public editService: EditService
   ) {
     this.createFormGroup = this.createFormGroup.bind(this);
   }
@@ -67,41 +69,6 @@ export class RootSchedulerComponent implements OnInit, OnDestroy {
     const len = this.events.length;
     return (len === 0) ? 1 : this.events[this.events.length - 1].id + 1;
   }
-  onSave($event: SaveEvent) {
-    // console.log($event);
-    if ($event.formGroup.valid) {
-      if ($event.formGroup.value.isAllDay) {
-        if ($event.isNew) {
-          this._store.dispatch(new fromTasks.AddTaskAction({
-            task: {
-              id: $event.formGroup.value.id,
-              title: $event.formGroup.value.title,
-              start: $event.formGroup.value.start,
-              end: $event.formGroup.value.end,
-              completed: false,
-              priority: 1
-            }
-          }));
-        } else {
-          console.log($event.formGroup.value.title);
-          this._store.dispatch(new fromTasks.UpdateTaskAction({
-            id: $event.formGroup.value.id,
-            task: {
-              id: $event.formGroup.value.id,
-              title: $event.formGroup.value.title,
-              start: $event.formGroup.value.start,
-              end: $event.formGroup.value.end,
-              completed: false
-            }
-          }));
-        }
-      }
-    }
-  }
-  onDelete($event: RemoveEvent) {
-    $event.sender.cancel.subscribe(respond => console.log('cacat'));
-  }
-
 
 }
 

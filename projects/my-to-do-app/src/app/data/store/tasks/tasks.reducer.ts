@@ -27,7 +27,8 @@ export function tasksReducer(state: ITasksState = INITIAL_STATE, action: fromTas
     case fromTasks.UPDATE_TASK:
       state.taskEvents.forEach(task => {
         if (task.id === action.payload.id) {
-          task = cloneDeep(action.payload.task);
+          task.title = action.payload.task.title;
+          // console.log(task);
         }
       });
       return state;
