@@ -740,6 +740,128 @@
           }
         }
       }
+    },
+    "master-angular": {
+      "root": "projects/master-angular/",
+      "sourceRoot": "projects/master-angular/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/master-angular",
+            "index": "projects/master-angular/src/app/static-resources/index.html",
+            "main": "projects/master-angular/src/app/app.ts",
+            "polyfills": "projects/master-angular/src/polyfills.ts",
+            "tsConfig": "projects/master-angular/tsconfig.app.json",
+            "assets": [
+              "projects/master-angular/src/favicon.ico",
+              "projects/master-angular/src/assets"
+            ],
+            "styles": [
+              "projects/master-angular/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/master-angular/src/environments/environment.ts",
+                  "with": "projects/master-angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "master-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "master-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "master-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/master-angular/src/test.ts",
+            "polyfills": "projects/master-angular/src/polyfills.ts",
+            "tsConfig": "projects/master-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/master-angular/karma.conf.js",
+            "styles": [
+              "projects/master-angular/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/master-angular/src/favicon.ico",
+              "projects/master-angular/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/master-angular/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "basic-template"
