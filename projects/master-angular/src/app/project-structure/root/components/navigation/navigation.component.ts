@@ -14,5 +14,9 @@ export class NavigationComponent {
       path: 'domain-model',
       label: 'Domain Model'
     },
+    {
+      path: 'custom-directive',
+      label: 'Custom Directive'
+    }
   ];
 }

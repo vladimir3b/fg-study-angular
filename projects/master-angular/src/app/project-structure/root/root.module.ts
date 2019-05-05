@@ -10,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { DomainModelModule } from '../domain-model/domain-model.module';
 
 import { ViewAndContentChildrenModule } from '../view-and-content-children/view-and-content-children.module';
+import { CustomDirectivesModule } from '../custom-directives/custom-directives.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ViewAndContentChildrenModule } from '../view-and-content-children/view-
     BrowserAnimationsModule,
     RootRouter,
     ViewAndContentChildrenModule,
-    DomainModelModule
+    DomainModelModule,
+    CustomDirectivesModule
   ],
   providers: [],
   bootstrap: [ RootComponent ]

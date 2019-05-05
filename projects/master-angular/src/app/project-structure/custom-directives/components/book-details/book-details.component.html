@@ -1,0 +1,16 @@
+<section>
+  <header>
+    Details about {{ book.title | titleCase }} by {{ book.author.firstName }} {{ book.author.lastName }}
+  </header>
+  <article>
+    The book {{ book.title }} by {{ book.author.firstName }} {{ book.author.lastName }}
+    was published in {{ book.year }} and it has {{ book.numberOfPages }} pages.
+    It usually costs {{ book.price }}.
+    You can find it under the code {{ book.code }}.
+  </article>
+  <footer>
+    <button>Like this book</button>
+    <button>Dislike this book</button>
+    <button>Delete this book</button>
+  </footer>
+</section>

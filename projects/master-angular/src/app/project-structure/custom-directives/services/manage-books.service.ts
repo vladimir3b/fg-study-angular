@@ -1,0 +1,14 @@
+import { cloneDeep } from 'lodash';
+import { Injectable } from '@angular/core';
+
+import { LIST_OF_BOOKS, IBookModel } from './../../../../../../.common/dumb_data/books.data';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ManageBooksService {
+
+  books(): Array<IBookModel> {
+    return cloneDeep(LIST_OF_BOOKS);
+  }
+}

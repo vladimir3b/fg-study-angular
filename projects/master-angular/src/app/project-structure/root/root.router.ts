@@ -1,9 +1,10 @@
-import { DomainModelRouter } from './../domain-model/domain-model.router';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ViewAndContentChildrenRouter } from '../view-and-content-children/view-and-content-children.router';
+import { DomainModelRouter } from './../domain-model/domain-model.router';
+import { CustomDirectiveRouter } from '../custom-directives/custom-directives.router';
 
 
 const ROUTER: Routes = [
@@ -25,7 +26,8 @@ const ROUTER: Routes = [
 
 const SUB_ROUTERS = [
   ViewAndContentChildrenRouter,
-  DomainModelRouter
+  DomainModelRouter,
+  CustomDirectiveRouter
 ]
 
 @NgModule({
