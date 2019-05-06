@@ -16,6 +16,7 @@ import { MasteringViewChildrenModule } from '../mastering-view-children/masterin
 import { MasteringContentChildrenModule } from '../mastering-content-children/mastering-content-children.module';
 import { MasteringDependencyInjectionModule } from '../mastering-dependency-injection/mastering-dependency-injection.module';
 import { MasteringTemplatesModule } from '../mastering-templates/mastering-templates.module';
+import { MasteringDomManipulationModule } from './../mastering-dom-manipulation/mastering-dom-manipulation.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MasteringTemplatesModule } from '../mastering-templates/mastering-templ
     MasteringViewChildrenModule,
     MasteringContentChildrenModule,
     MasteringDependencyInjectionModule,
-    MasteringTemplatesModule
+    MasteringTemplatesModule,
+    MasteringDomManipulationModule
   ],
   providers: [],
   bootstrap: [ RootComponent ]

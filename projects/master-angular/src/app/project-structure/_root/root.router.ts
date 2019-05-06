@@ -10,8 +10,7 @@ import { CustomDirectiveRouter } from '../custom-directives/custom-directives.ro
 import { MasteringDependencyInjectionRouter } from '../mastering-dependency-injection/mastering-dependency-injection.router';
 import { MasteringContentChildrenRouter } from '../mastering-content-children/mastering-content-children.router';
 import { MasteringViewChildrenRouter } from '../mastering-view-children/mastering-view-children.router';
-
-
+import { MasteringDomManipulationRouter } from '../mastering-dom-manipulation/mastering-dom-manipulation.router';
 
 const ROUTER: Routes = [
   {
@@ -39,7 +38,8 @@ const SUB_ROUTERS = [
   MasteringContentChildrenRouter,
   MasteringDependencyInjectionRouter,
   MasteringTemplatesRouter,
-  MasteringViewChildrenRouter
+  MasteringViewChildrenRouter,
+  MasteringDomManipulationRouter
 ];
 
 @NgModule({

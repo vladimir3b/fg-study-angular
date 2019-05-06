@@ -37,6 +37,10 @@ export class NavigationComponent {
     {
       path: 'mastering-view-children',
       label: 'Mastering View Children',
+    },
+    {
+      path: 'mastering-dom-manipulation',
+      label: 'Mastering Dom Manipulation'
     }
   ];
 }
