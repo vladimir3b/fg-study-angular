@@ -862,6 +862,250 @@
           }
         }
       }
+    },
+        "advanced-angular": {
+      "root": "projects/advanced-angular/",
+      "sourceRoot": "projects/advanced-angular/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/advanced-angular",
+            "index": "projects/advanced-angular/src/app/static-resources/index.html",
+            "main": "projects/advanced-angular/src/app/app.ts",
+            "polyfills": "projects/advanced-angular/src/polyfills.ts",
+            "tsConfig": "projects/advanced-angular/tsconfig.app.json",
+            "assets": [
+              "projects/advanced-angular/src/favicon.ico",
+              "projects/advanced-angular/src/assets"
+            ],
+            "styles": [
+              "projects/advanced-angular/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/advanced-angular/src/environments/environment.ts",
+                  "with": "projects/advanced-angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "advanced-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "advanced-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "advanced-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/advanced-angular/src/test.ts",
+            "polyfills": "projects/advanced-angular/src/polyfills.ts",
+            "tsConfig": "projects/advanced-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/advanced-angular/karma.conf.js",
+            "styles": [
+              "projects/advanced-angular/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/advanced-angular/src/favicon.ico",
+              "projects/advanced-angular/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/advanced-angular/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "advanced-angular": {
+      "root": "projects/advanced-angular/",
+      "sourceRoot": "projects/advanced-angular/src",
+      "projectType": "application",
+      "prefix": "fg",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/advanced-angular",
+            "index": "projects/advanced-angular/src/app/static-resources/index.html",
+            "main": "projects/advanced-angular/src/app/app.ts",
+            "polyfills": "projects/advanced-angular/src/polyfills.ts",
+            "tsConfig": "projects/advanced-angular/tsconfig.app.json",
+            "assets": [
+              "projects/advanced-angular/src/favicon.ico",
+              "projects/advanced-angular/src/assets"
+            ],
+            "styles": [
+              "projects/advanced-angular/src/app/static-resources/styles/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/advanced-angular/src/environments/environment.ts",
+                  "with": "projects/advanced-angular/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "advanced-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "advanced-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "advanced-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/advanced-angular/src/test.ts",
+            "polyfills": "projects/advanced-angular/src/polyfills.ts",
+            "tsConfig": "projects/advanced-angular/tsconfig.spec.json",
+            "karmaConfig": "projects/advanced-angular/karma.conf.js",
+            "styles": [
+              "projects/advanced-angular/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/advanced-angular/src/favicon.ico",
+              "projects/advanced-angular/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/advanced-angular/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "basic-template"
