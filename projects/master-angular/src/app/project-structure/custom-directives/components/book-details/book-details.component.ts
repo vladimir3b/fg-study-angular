@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { IBookModel } from './../../../../../../../.common/dumb_data/books.data';
+import { IBookModel } from '../../../../../../../.common/dumb-data/books.data';
 
 @Component({
   selector: 'fg-book-details',

@@ -1,7 +1,7 @@
 import { DetailOneBookComponent } from './../detail-one-book/detail-one-book.component';
 import { GetDataService } from './../../services/get-data.service';
 import { Component, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, ContentChild, AfterContentInit } from '@angular/core';
-import { IBookModel } from 'projects/.common/dumb_data/books.data';
+import { IBookModel } from 'projects/.common/dumb-data/books.data';
 
 @Component({
   selector: 'fg-list-books',

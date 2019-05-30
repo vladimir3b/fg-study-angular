@@ -1,6 +1,6 @@
 import { ManageBooksService } from './../../services/manage-books.service';
 import { Component, OnInit } from '@angular/core';
-import { IBookModel } from 'projects/.common/dumb_data/books.data';
+import { IBookModel } from 'projects/.common/dumb-data/books.data';
 
 @Component({
   selector: 'fg-root-custom-directives',

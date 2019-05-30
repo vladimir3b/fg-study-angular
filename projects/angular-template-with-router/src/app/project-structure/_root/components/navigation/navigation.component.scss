@@ -1,0 +1,42 @@
+@import './../../../../../../../.common/styles/variables.scss';
+
+mat-expansion-panel-header {
+  &:hover {
+    background-color: $side-nav-menu-background-color-hover !important;
+  }
+  &.mat-expanded {
+    // height: 2.5rem !important;
+    background-color: $side-nav-menu-background-color-active !important;
+  }
+  // height: 2.5rem !important;
+  background-color: $side-nav-menu-background-color !important;
+}
+
+mat-expansion-panel {
+  mat-list-item {
+    &:hover {
+      cursor: pointer;
+      border-radius: 0.5rem;
+      background-color: darken($side-nav-menu-background-color-active, 20% ) !important;
+      span {
+        color: #ddd;
+      }
+    }
+    span {
+      font-size: 0.75rem;
+      font-weight: bolder;
+      color: #444;
+    }
+    height: 1.5rem;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  user-select: none;
+  margin: 0;
+  background-color: lighten($side-nav-menu-background-color-active, 30% ) !important;
+}
+
+mat-panel-title {
+  color: white;
+}

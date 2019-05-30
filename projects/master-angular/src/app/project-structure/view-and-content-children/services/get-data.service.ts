@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash';
 import { Injectable } from '@angular/core';
 
-import { LIST_OF_BOOKS, IBookModel } from './../../../../../../.common/dumb_data/books.data';
+import { LIST_OF_BOOKS, IBookModel } from '../../../../../../.common/dumb-data/books.data';
 
 @Injectable({
   providedIn: 'root'

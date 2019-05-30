@@ -1,4 +1,4 @@
-import { IBookModel } from 'projects/.common/dumb_data/books.data';
+import { IBookModel } from 'projects/.common/dumb-data/books.data';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

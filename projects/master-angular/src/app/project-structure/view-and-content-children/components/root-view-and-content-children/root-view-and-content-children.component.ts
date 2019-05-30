@@ -1,4 +1,4 @@
-import { IBookModel } from './../../../../../../../.common/dumb_data/books.data';
+import { IBookModel } from '../../../../../../../.common/dumb-data/books.data';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

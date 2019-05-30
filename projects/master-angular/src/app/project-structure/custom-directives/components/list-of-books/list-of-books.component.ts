@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IBookModel } from 'projects/.common/dumb_data/books.data';
+import { IBookModel } from 'projects/.common/dumb-data/books.data';
 
 @Component({
   selector: 'fg-list-of-books',
