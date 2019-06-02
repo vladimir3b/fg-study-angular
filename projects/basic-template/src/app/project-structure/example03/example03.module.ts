@@ -1,16 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { Example03RootComponent } from './components/example03-root/example03-root.component';
-import { Example03SchedulerComponent } from './components/example03-scheduler/example03-scheduler.component';
+import { Example0303Component } from './components/example0303/example0303.component';
+import { Example0302Component } from './components/example0302/example0302.component';
+import { Example0301Component } from './components/example0301/example0301.component';
 
 @NgModule({
-  declarations: [
-    Example03RootComponent,
-    Example03SchedulerComponent
-  ],
+  declarations: [Example0303Component, Example0302Component, Example0301Component],
   imports: [
-    CommonModule,
+    CommonModule
   ]
 })
 export class Example03Module { }

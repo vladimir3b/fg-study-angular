@@ -131,250 +131,6 @@
         }
       }
     },
-    "ngrx-basic-example": {
-      "root": "projects/ngrx-basic-example/",
-      "sourceRoot": "projects/ngrx-basic-example/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/ngrx-basic-example",
-            "index": "projects/ngrx-basic-example/src/app/static-resources/index.html",
-            "main": "projects/ngrx-basic-example/src/app/app.ts",
-            "polyfills": "projects/ngrx-basic-example/src/polyfills.ts",
-            "tsConfig": "projects/ngrx-basic-example/tsconfig.app.json",
-            "assets": [
-              "projects/ngrx-basic-example/src/favicon.ico",
-              "projects/ngrx-basic-example/src/assets"
-            ],
-            "styles": [
-              "projects/ngrx-basic-example/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/ngrx-basic-example/src/environments/environment.ts",
-                  "with": "projects/ngrx-basic-example/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ngrx-basic-example:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ngrx-basic-example:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ngrx-basic-example:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngrx-basic-example/src/test.ts",
-            "polyfills": "projects/ngrx-basic-example/src/polyfills.ts",
-            "tsConfig": "projects/ngrx-basic-example/tsconfig.spec.json",
-            "karmaConfig": "projects/ngrx-basic-example/karma.conf.js",
-            "styles": [
-              "projects/ngrx-basic-example/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/ngrx-basic-example/src/favicon.ico",
-              "projects/ngrx-basic-example/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngrx-basic-example/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "to-do-app": {
-      "root": "projects/to-do-app/",
-      "sourceRoot": "projects/to-do-app/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/to-do-app",
-            "index": "projects/to-do-app/src/app/static-resources/index.html",
-            "main": "projects/to-do-app/src/app/app.ts",
-            "polyfills": "projects/to-do-app/src/polyfills.ts",
-            "tsConfig": "projects/to-do-app/tsconfig.app.json",
-            "assets": [
-              "projects/to-do-app/src/favicon.ico",
-              "projects/to-do-app/src/assets"
-            ],
-            "styles": [
-              "projects/to-do-app/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/to-do-app/src/environments/environment.ts",
-                  "with": "projects/to-do-app/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "to-do-app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "to-do-app:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "to-do-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/to-do-app/src/test.ts",
-            "polyfills": "projects/to-do-app/src/polyfills.ts",
-            "tsConfig": "projects/to-do-app/tsconfig.spec.json",
-            "karmaConfig": "projects/to-do-app/karma.conf.js",
-            "styles": [
-              "projects/to-do-app/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/to-do-app/src/favicon.ico",
-              "projects/to-do-app/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/to-do-app/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "kendo-scheduler": {
       "root": "projects/kendo-scheduler/",
       "sourceRoot": "projects/kendo-scheduler/src",
@@ -497,9 +253,9 @@
         }
       }
     },
-    "kendo-scheduler-advanced": {
-      "root": "projects/kendo-scheduler-advanced/",
-      "sourceRoot": "projects/kendo-scheduler-advanced/src",
+    "mastering-kendo-scheduler": {
+      "root": "projects/mastering-kendo-scheduler/",
+      "sourceRoot": "projects/mastering-kendo-scheduler/src",
       "projectType": "application",
       "prefix": "fg",
       "schematics": {
@@ -530,17 +286,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kendo-scheduler-advanced",
-            "index": "projects/kendo-scheduler-advanced/src/app/static-resources/index.html",
-            "main": "projects/kendo-scheduler-advanced/src/app/app.ts",
-            "polyfills": "projects/kendo-scheduler-advanced/src/polyfills.ts",
-            "tsConfig": "projects/kendo-scheduler-advanced/tsconfig.app.json",
+            "outputPath": "dist/mastering-kendo-scheduler",
+            "index": "projects/mastering-kendo-scheduler/src/app/static-resources/index.html",
+            "main": "projects/mastering-kendo-scheduler/src/app/app.ts",
+            "polyfills": "projects/mastering-kendo-scheduler/src/polyfills.ts",
+            "tsConfig": "projects/mastering-kendo-scheduler/tsconfig.app.json",
             "assets": [
-              "projects/kendo-scheduler-advanced/src/favicon.ico",
-              "projects/kendo-scheduler-advanced/src/assets"
+              "projects/mastering-kendo-scheduler/src/favicon.ico",
+              "projects/mastering-kendo-scheduler/src/assets"
             ],
             "styles": [
-              "projects/kendo-scheduler-advanced/src/app/static-resources/styles/styles.scss"
+              "projects/mastering-kendo-scheduler/src/app/static-resources/styles/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -549,8 +305,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/kendo-scheduler-advanced/src/environments/environment.ts",
-                  "with": "projects/kendo-scheduler-advanced/src/environments/environment.prod.ts"
+                  "replace": "projects/mastering-kendo-scheduler/src/environments/environment.ts",
+                  "with": "projects/mastering-kendo-scheduler/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -575,34 +331,34 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kendo-scheduler-advanced:build"
+            "browserTarget": "mastering-kendo-scheduler:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kendo-scheduler-advanced:build:production"
+              "browserTarget": "mastering-kendo-scheduler:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kendo-scheduler-advanced:build"
+            "browserTarget": "mastering-kendo-scheduler:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kendo-scheduler-advanced/src/test.ts",
-            "polyfills": "projects/kendo-scheduler-advanced/src/polyfills.ts",
-            "tsConfig": "projects/kendo-scheduler-advanced/tsconfig.spec.json",
-            "karmaConfig": "projects/kendo-scheduler-advanced/karma.conf.js",
+            "main": "projects/mastering-kendo-scheduler/src/test.ts",
+            "polyfills": "projects/mastering-kendo-scheduler/src/polyfills.ts",
+            "tsConfig": "projects/mastering-kendo-scheduler/tsconfig.spec.json",
+            "karmaConfig": "projects/mastering-kendo-scheduler/karma.conf.js",
             "styles": [
-              "projects/kendo-scheduler-advanced/src/styles.scss"
+              "projects/mastering-kendo-scheduler/src/styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "projects/kendo-scheduler-advanced/src/favicon.ico",
-              "projects/kendo-scheduler-advanced/src/assets"
+              "projects/mastering-kendo-scheduler/src/favicon.ico",
+              "projects/mastering-kendo-scheduler/src/assets"
             ]
           }
         },
@@ -610,495 +366,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kendo-scheduler-advanced/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "my-to-do-app": {
-      "root": "projects/my-to-do-app/",
-      "sourceRoot": "projects/my-to-do-app/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/my-to-do-app",
-            "index": "projects/my-to-do-app/src/app/static-resources/index.html",
-            "main": "projects/my-to-do-app/src/app/app.ts",
-            "polyfills": "projects/my-to-do-app/src/polyfills.ts",
-            "tsConfig": "projects/my-to-do-app/tsconfig.app.json",
-            "assets": [
-              "projects/my-to-do-app/src/favicon.ico",
-              "projects/my-to-do-app/src/assets"
-            ],
-            "styles": [
-              "projects/my-to-do-app/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/my-to-do-app/src/environments/environment.ts",
-                  "with": "projects/my-to-do-app/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "my-to-do-app:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "my-to-do-app:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "my-to-do-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/my-to-do-app/src/test.ts",
-            "polyfills": "projects/my-to-do-app/src/polyfills.ts",
-            "tsConfig": "projects/my-to-do-app/tsconfig.spec.json",
-            "karmaConfig": "projects/my-to-do-app/karma.conf.js",
-            "styles": [
-              "projects/my-to-do-app/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/my-to-do-app/src/favicon.ico",
-              "projects/my-to-do-app/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/my-to-do-app/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "master-angular": {
-      "root": "projects/master-angular/",
-      "sourceRoot": "projects/master-angular/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/master-angular",
-            "index": "projects/master-angular/src/app/static-resources/index.html",
-            "main": "projects/master-angular/src/app/app.ts",
-            "polyfills": "projects/master-angular/src/polyfills.ts",
-            "tsConfig": "projects/master-angular/tsconfig.app.json",
-            "assets": [
-              "projects/master-angular/src/favicon.ico",
-              "projects/master-angular/src/assets"
-            ],
-            "styles": [
-              "projects/master-angular/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/master-angular/src/environments/environment.ts",
-                  "with": "projects/master-angular/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "master-angular:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "master-angular:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "master-angular:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/master-angular/src/test.ts",
-            "polyfills": "projects/master-angular/src/polyfills.ts",
-            "tsConfig": "projects/master-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/master-angular/karma.conf.js",
-            "styles": [
-              "projects/master-angular/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/master-angular/src/favicon.ico",
-              "projects/master-angular/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/master-angular/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-        "advanced-angular": {
-      "root": "projects/advanced-angular/",
-      "sourceRoot": "projects/advanced-angular/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/advanced-angular",
-            "index": "projects/advanced-angular/src/app/static-resources/index.html",
-            "main": "projects/advanced-angular/src/app/app.ts",
-            "polyfills": "projects/advanced-angular/src/polyfills.ts",
-            "tsConfig": "projects/advanced-angular/tsconfig.app.json",
-            "assets": [
-              "projects/advanced-angular/src/favicon.ico",
-              "projects/advanced-angular/src/assets"
-            ],
-            "styles": [
-              "projects/advanced-angular/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/advanced-angular/src/environments/environment.ts",
-                  "with": "projects/advanced-angular/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "advanced-angular:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "advanced-angular:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "advanced-angular:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/advanced-angular/src/test.ts",
-            "polyfills": "projects/advanced-angular/src/polyfills.ts",
-            "tsConfig": "projects/advanced-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/advanced-angular/karma.conf.js",
-            "styles": [
-              "projects/advanced-angular/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/advanced-angular/src/favicon.ico",
-              "projects/advanced-angular/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/advanced-angular/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "advanced-angular": {
-      "root": "projects/advanced-angular/",
-      "sourceRoot": "projects/advanced-angular/src",
-      "projectType": "application",
-      "prefix": "fg",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/advanced-angular",
-            "index": "projects/advanced-angular/src/app/static-resources/index.html",
-            "main": "projects/advanced-angular/src/app/app.ts",
-            "polyfills": "projects/advanced-angular/src/polyfills.ts",
-            "tsConfig": "projects/advanced-angular/tsconfig.app.json",
-            "assets": [
-              "projects/advanced-angular/src/favicon.ico",
-              "projects/advanced-angular/src/assets"
-            ],
-            "styles": [
-              "projects/advanced-angular/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": [],
-            "es5BrowserSupport": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/advanced-angular/src/environments/environment.ts",
-                  "with": "projects/advanced-angular/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "advanced-angular:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "advanced-angular:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "advanced-angular:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/advanced-angular/src/test.ts",
-            "polyfills": "projects/advanced-angular/src/polyfills.ts",
-            "tsConfig": "projects/advanced-angular/tsconfig.spec.json",
-            "karmaConfig": "projects/advanced-angular/karma.conf.js",
-            "styles": [
-              "projects/advanced-angular/src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/advanced-angular/src/favicon.ico",
-              "projects/advanced-angular/src/assets"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/advanced-angular/tsconfig.app.json"
+              "projects/mastering-kendo-scheduler/tsconfig.app.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -1232,5 +500,3 @@
   },
   "defaultProject": "basic-template"
 }
-
-

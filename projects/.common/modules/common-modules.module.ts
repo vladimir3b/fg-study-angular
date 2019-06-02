@@ -4,7 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { PrismComponent } from './../components/fg-prism.component';
+import { FgWeekViewComponent } from '../components/fg-week-view.component';
+import { FgDayViewComponent } from './../components/fg-day-view.component';
+import { FgSchedulerComponent } from './../components/fg-scheduler.component';
 
 const COMMON_MODULES = [
   MaterialModule,
@@ -14,7 +16,9 @@ const COMMON_MODULES = [
   KendoModule
 ];
 const COMMON_DECLARATIONS = [
-  PrismComponent
+  FgSchedulerComponent,
+  FgDayViewComponent,
+  FgWeekViewComponent
 ];
 
 @NgModule({
