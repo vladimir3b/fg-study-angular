@@ -1,0 +1,21 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <fg-navigation></fg-navigation>
+  </mat-sidenav>
+
+  <mat-sidenav-content
+      fxLayout="row"
+      fxLayoutGap="0.5rem"
+      fxLayoutAlign="start stretch">
+    <button
+        (click)="toggle(sidenav)">
+      <mat-icon *ngIf="!opened">keyboard_arrow_right</mat-icon>
+      <mat-icon *ngIf="opened">keyboard_arrow_left</mat-icon>
+    </button>
+    <div style="width: 100%">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

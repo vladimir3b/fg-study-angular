@@ -1,0 +1,29 @@
+@import './../../../../../../../.common/styles/variables.scss';
+
+mat-sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+  padding: 2rem 0.5rem 2rem 1rem;
+  background-color: lighten( $side-nav-background-color, 20% );
+  width: 300px;
+  overflow: auto;
+}
+
+button {
+  user-select: none;
+  background-color: $side-nav-background-color;
+  width: 1.5rem !important;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 1rem 1rem 0;
+  border: none;
+  outline:none;
+  color: white;
+}
+
