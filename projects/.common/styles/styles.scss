@@ -9,3 +9,8 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/plugins/line-numbers/prism-line-numbers.css";
+
+
+.mat-expansion-indicator::after {
+  border-color: white !important;
+}
