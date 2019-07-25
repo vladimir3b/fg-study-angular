@@ -1,0 +1,104 @@
+<ng-container *ngIf="!clientDeactivated">
+  <div fxLayout="column"
+      *ngIf="!shoppingDone"
+      class="mb-5"
+      fxLayoutAlign="space-between center">
+
+    <h1 class="display-3 text-center">
+      Your Shopping Cart
+    </h1>
+
+    <div class="mat-elevation-z1 table-container mt-3">
+      <table mat-table
+          matSort
+          [dataSource]="shoppingCart">
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header>
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header>
+            Quantity
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <input (focusout)="onUpdateQuantity(element)"
+                class="quantity"
+                type="number"
+                matInput
+                [(ngModel)]="element.quantity">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header>
+            Price
+          </th>
+          <td mat-cell  *matCellDef="let element">
+              {{ element.price }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)="onDeleteFromCart(element)"
+                class="btn btn-danger btn-sm">
+              remove from 🛒
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div class="p-4 mat-table mat-cell mat-paginator-container table-border text-right">
+        <strong>Total:</strong>&nbsp; {{
+          calculateTotal() | currency : 'EUR' : 'symbol-narrow' : '3.2-2'
+        }}
+        &nbsp;&nbsp;
+        <button (click)="buyItAll()"
+            [disabled]="blockBuyingButton"
+            class="btn btn-success">
+          Buy it all
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-container *ngIf="shoppingDone">
+    <fg-message [message]="{
+          icon: '🙆',
+          title: 'Your shopping has been completed',
+          html: invoiceDetails(),
+          viewButton: true,
+          buttonText: 'Go back to shopping!',
+          onClick: onClickInvoiceButton.bind(this)
+        }"></fg-message>
+  </ng-container>
+
+
+</ng-container>
+
+<ng-container *ngIf="clientDeactivated">
+  <fg-message [message]="{
+        icon: '🙃',
+        title: 'Client deactivated',
+        html: 'Edit your account to activate again..',
+        viewButton: true,
+        buttonText: 'Edit your account!',
+        onClick: onClickClientInactiveButton.bind(this)
+      }"></fg-message>
+</ng-container>

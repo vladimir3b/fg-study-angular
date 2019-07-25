@@ -1,0 +1,25 @@
+<mat-accordion>
+
+  <mat-expansion-panel *ngFor="let menuElement of navigationLink">
+    <mat-expansion-panel-header>
+      <mat-panel-title >
+        {{ menuElement.label }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <ng-container *ngIf="menuElement.navigationLinks?.length">
+        <mat-list-item
+            (click)="navigate(menuElement.path, subMenu.path)"
+            *ngFor="let subMenu of menuElement.navigationLinks">
+          <span>{{ subMenu.label }}</span>
+        </mat-list-item>
+      </ng-container>
+      <ng-container *ngIf="!menuElement.navigationLinks?.length">
+        <mat-list-item (click)="navigate(menuElement.path)">
+          <span>Go to {{ menuElement.label }}</span>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </mat-expansion-panel>
+
+</mat-accordion>

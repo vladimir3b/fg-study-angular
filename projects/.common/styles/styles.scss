@@ -3,12 +3,10 @@
 @import url('https://fonts.googleapis.com/css?family=Dokdo');
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 @import '~bootstrap-scss/bootstrap.scss';
-@import "~prismjs/themes/prism-okaidia";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import "~prismjs/plugins/toolbar/prism-toolbar.css";
-@import "~prismjs/plugins/line-numbers/prism-line-numbers.css";
 
 
 .mat-expansion-indicator::after {

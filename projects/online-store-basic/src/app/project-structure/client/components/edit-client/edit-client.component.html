@@ -1,0 +1,136 @@
+<div fxLayout="column"
+    *ngIf="!loginError"
+    fxLayoutAlign="space-between center">
+  <h1 class="display-3 text-center">
+    Edit User {{ client.username }}
+  </h1>
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Client data
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form fxLayout="column"
+          [formGroup]="editClientForm"
+          (ngSubmit)="onSubmitClientForm()"
+          fxLayoutAlign="space-between center">
+        <mat-form-field>
+          <input matInput
+              type="text"
+              placeholder="Enter your username..."
+              formControlName="username">
+          <mat-error *ngIf="editClientForm.get('username').hasError('forbiddenUsername')">
+            Forbidden username.
+          </mat-error>
+          <mat-error *ngIf="editClientForm.get('username').hasError('usernameAlreadyExists')">
+            Username already exists.
+          </mat-error>
+          <mat-error *ngIf="editClientForm.get('username').hasError('required')">
+            Username is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+              type="email"
+              placeholder="Enter your email..."
+              [value]="client?.email"
+              formControlName="email">
+          <mat-error *ngIf="editClientForm.get('email').hasError('email')">
+            You must enter a valid email.
+          </mat-error>
+          <mat-error *ngIf="editClientForm.get('email').hasError('required')">
+            Email is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+              type="text"
+              placeholder="Enter your phone number..."
+              [value]="client?.phone"
+              formControlName="phone">
+          <mat-error>
+            Phone is required.
+          </mat-error>
+        </mat-form-field>
+        <div fxLayout="row"
+            fxLayoutGap="1rem"
+            fxLayoutAlign="space-between">
+          <button class="btn btn-info mt-3 mb-3"
+              [disabled]="editClientForm.invalid"
+              type="submit">
+            Save user data
+          </button>
+        </div>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Client password
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <form fxLayout="column"
+          [formGroup]="editClientPasswordForm"
+          (ngSubmit)="onSubmitClientPasswordForm()"
+          fxLayoutAlign="space-between center">
+        <mat-form-field>
+          <input matInput
+              type="password"
+              placeholder="Enter your password..."
+              formControlName="password">
+          <mat-error *ngIf="editClientPasswordForm.get('password').hasError('required') && (editClientPasswordForm.get('password').dirty || editClientPasswordForm.get('password').touched)">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="editClientPasswordForm.get('password').hasError('wrongPassword') && (editClientPasswordForm.get('password').dirty || editClientPasswordForm.get('password').touched)">
+            Wrong password.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+              type="password"
+              placeholder="Enter your password..."
+              formControlName="password1">
+          <mat-error *ngIf="editClientPasswordForm.get('password1').hasError('minlength') && (editClientPasswordForm.get('password1').dirty || editClientPasswordForm.get('password1').touched)">
+            Password must contain at least 8 characters.
+          </mat-error>
+          <mat-error *ngIf="editClientPasswordForm.get('password1').hasError('required')  && (editClientPasswordForm.get('password1').dirty || editClientPasswordForm.get('password1').touched)">
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+              type="password"
+              placeholder="Retype your password..."
+              formControlName="password2">
+          <mat-error *ngIf="(editClientPasswordForm.get('password2').dirty || editClientPasswordForm.get('password2').touched)">
+            You have to enter the same password as above.
+          </mat-error>
+        </mat-form-field>
+        <button class="btn btn-info mt-3 mb-3"
+            [disabled]="editClientPasswordForm.invalid"
+            type="submit">
+          Save new password
+        </button>
+      </form>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        Other functions
+      </mat-expansion-panel-header>
+      <button class="btn btn-warning mt-3 mb-3"
+          *ngIf="!clientDeactivated"
+          (click)="onDeactivateClient(client.clientId)">
+        Deactivate user
+      </button>
+      <button class="btn btn-success mt-3 mb-3"
+          *ngIf="clientDeactivated"
+          (click)="onActivateClient(client.clientId)">
+        Activate user
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

@@ -1,0 +1,35 @@
+<div fxLayout="column"
+    class="mb-5"
+    fxLayoutAlign="space-between center">
+
+  <h1 class="display-4 text-center">
+    {{ product.name }} details
+  </h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-2 text-right">
+        <strong>name</strong>
+      </div>
+      <div class="col">
+        {{ product.name }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 text-right">
+        <strong>description</strong>
+      </div>
+      <div class="col">
+        {{ product.description }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2 text-right">
+        <strong>price</strong>
+      </div>
+      <div class="col">
+        {{ product.price | currency : 'EUR' : 'symbol-narrow' : '3.2-2' }}
+      </div>
+    </div>
+  </div>
+</div>
