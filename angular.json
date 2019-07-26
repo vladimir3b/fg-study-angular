@@ -3,9 +3,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-8-template": {
-      "root": "projects/angular-8-template/",
-      "sourceRoot": "projects/angular-8-template/src",
+
+    "angular-template": {
+      "root": "projects/angular-template/",
+      "sourceRoot": "projects/angular-template/src",
       "prefix": "fg",
       "projectType": "application",
       "schematics": {
@@ -36,18 +37,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-8-template",
-            "index": "projects/angular-8-template/src/app/static-resources/index.html",
-            "main": "projects/angular-8-template/src/app/app.ts",
-            "polyfills": "projects/angular-8-template/src/polyfills.ts",
-            "tsConfig": "projects/angular-8-template/tsconfig.app.json",
+            "outputPath": "dist/angular-template",
+            "index": "projects/angular-template/src/app/static-resources/index.html",
+            "main": "projects/angular-template/src/app/app.ts",
+            "polyfills": "projects/angular-template/src/polyfills.ts",
+            "tsConfig": "projects/angular-template/tsconfig.app.json",
             "aot": false,
             "assets": [
-              "projects/angular-8-template/src/favicon.ico",
-              "projects/angular-8-template/src/assets"
+              "projects/angular-template/src/favicon.ico",
+              "projects/angular-template/src/assets"
             ],
             "styles": [
-              "projects/angular-8-template/src/app/static-resources/styles/styles.scss"
+              "projects/angular-template/src/app/static-resources/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -55,8 +56,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/angular-8-template/src/environments/environment.ts",
-                  "with": "projects/angular-8-template/src/environments/environment.prod.ts"
+                  "replace": "projects/angular-template/src/environments/environment.ts",
+                  "with": "projects/angular-template/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -81,238 +82,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-8-template:build"
+            "browserTarget": "angular-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-8-template:build:production"
+              "browserTarget": "angular-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-8-template:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-
-
-
-
-
-    "online-store-basic": {
-      "root": "projects/online-store-basic/",
-      "sourceRoot": "projects/online-store-basic/src",
-      "prefix": "fg",
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/online-store-basic",
-            "index": "projects/online-store-basic/src/app/static-resources/index.html",
-            "main": "projects/online-store-basic/src/app/app.ts",
-            "polyfills": "projects/online-store-basic/src/polyfills.ts",
-            "tsConfig": "projects/online-store-basic/tsconfig.app.json",
-            "aot": false,
-            "assets": [
-              "projects/online-store-basic/src/favicon.ico",
-              "projects/online-store-basic/src/assets"
-            ],
-            "styles": [
-              "projects/online-store-basic/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/online-store-basic/src/environments/environment.ts",
-                  "with": "projects/online-store-basic/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "online-store-basic:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "online-store-basic:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "online-store-basic:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-
-
-
-    "online-market-01": {
-      "root": "projects/online-market-01/",
-      "sourceRoot": "projects/online-market-01/src",
-      "prefix": "fg",
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss",
-          "skipTests": true
-        },
-        "@schematics/angular:class": {
-          "skipTests": true
-        },
-        "@schematics/angular:directive": {
-          "skipTests": true
-        },
-        "@schematics/angular:guard": {
-          "skipTests": true
-        },
-        "@schematics/angular:module": {
-          "skipTests": true
-        },
-        "@schematics/angular:pipe": {
-          "skipTests": true
-        },
-        "@schematics/angular:service": {
-          "skipTests": true
-        }
-      },
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/online-market-01",
-            "index": "projects/online-market-01/src/app/static-resources/index.html",
-            "main": "projects/online-market-01/src/app/app.ts",
-            "polyfills": "projects/online-market-01/src/polyfills.ts",
-            "tsConfig": "projects/online-market-01/tsconfig.app.json",
-            "aot": false,
-            "assets": [
-              "projects/online-market-01/src/favicon.ico",
-              "projects/online-market-01/src/assets"
-            ],
-            "styles": [
-              "projects/online-market-01/src/app/static-resources/styles/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/online-market-01/src/environments/environment.ts",
-                  "with": "projects/online-market-01/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "online-market-01:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "online-market-01:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "online-market-01:build"
+            "browserTarget": "angular-template:build"
           }
         },
         "lint": {
@@ -332,5 +113,5 @@
 
 
   },
-  "defaultProject": "angular-8-template"
+  "defaultProject": "angular-template"
 }
