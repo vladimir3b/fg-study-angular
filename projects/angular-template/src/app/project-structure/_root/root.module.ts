@@ -1,3 +1,4 @@
+import { RootRouter } from './root.router';
 import { NavigationService } from './services/navigation.service';
 import { SharedModules } from './../../../../../.shared-resources/modules/shared.module';
 import { RootComponent } from './components/root/root.component';
@@ -9,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
 import { SidebarNavigationComponent } from './components/sidebar-navigation/sidebar-navigation.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,13 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
     MainHeaderComponent
   ],
   imports: [
-    SharedModules
+    BrowserModule,
+    SharedModules,
+    RootRouter
   ],
   providers: [
     NavigationService
   ],
   bootstrap: [ RootComponent ]
 })
-export class RootModule {
-
-}
+export class RootModule { }

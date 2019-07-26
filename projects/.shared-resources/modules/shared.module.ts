@@ -10,7 +10,6 @@ const COMMON_MODULES = [
   CommonModule,
   BrowserAnimationsModule,
   ReactiveFormsModule,
-  BrowserAnimationsModule,
   FormsModule,
   RouterModule,
   AngularMaterialModules

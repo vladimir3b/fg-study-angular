@@ -11,6 +11,7 @@ export class MainNavigationComponent implements OnInit {
   constructor(public navigation: NavigationService) { }
 
   ngOnInit() {
+    console.log(this.navigation);
   }
 
 }
