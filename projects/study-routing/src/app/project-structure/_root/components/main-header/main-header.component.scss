@@ -1,3 +1,11 @@
-fg-main-navigation {
-  width: 100%;
+@import '~bootstrap-scss/functions';
+@import '~bootstrap-scss/variables';
+
+div {
+  padding: 1rem;
+  background-color: rgba($teal, 0.5);
+}
+
+button {
+  margin-right: 1rem;
 }

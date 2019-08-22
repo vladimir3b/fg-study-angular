@@ -1,31 +1,29 @@
 import { RootRouter } from './root.router';
 import { NavigationService } from './services/navigation.service';
-import { SharedModules } from './../../../../../.shared-resources/modules/shared.module';
 import { RootComponent } from './components/root/root.component';
 import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MainNavigationComponent } from './components/main-navigation/main-navigation.component';
-import { SidebarNavigationComponent } from './components/sidebar-navigation/sidebar-navigation.component';
-import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { MainHeaderComponent } from './components/main-header/main-header.component';
+import { QueryParametersComponent } from './components/query-parameters/query-parameters.component';
+import { FragmentsComponent } from './components/fragments/fragments.component';
+import { PathsComponent } from './components/paths/paths.component';
+import { CompleteUrlComponent } from './components/complete-url/complete-url.component';
 
 @NgModule({
   declarations: [
     RootComponent,
     PageNotFoundComponent,
-    FooterComponent,
+    MainHeaderComponent,
     HomeComponent,
-    SidebarComponent,
-    MainNavigationComponent,
-    SidebarNavigationComponent,
-    MainHeaderComponent
+    QueryParametersComponent,
+    FragmentsComponent,
+    PathsComponent,
+    CompleteUrlComponent
   ],
   imports: [
     BrowserModule,
-    SharedModules,
     RootRouter
   ],
   providers: [

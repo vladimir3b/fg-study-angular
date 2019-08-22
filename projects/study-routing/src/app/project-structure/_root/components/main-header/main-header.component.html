@@ -1,5 +1,8 @@
-<mat-toolbar color="primary">
-  <ng-content></ng-content>
-  <span>Best Market</span>
-  <fg-main-navigation></fg-main-navigation>
-</mat-toolbar>
+<div>
+  <button
+      [routerLink]="link.path"
+      *ngFor="let link of links"
+      class="btn btn-sm btn-danger">
+    {{link.caption}}
+  </button>
+</div>

@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { QueryParametersComponent } from './components/query-parameters/query-parameters.component';
+import { FragmentsComponent } from './components/fragments/fragments.component';
+import { PathsComponent } from './components/paths/paths.component';
+import { CompleteUrlComponent } from './components/complete-url/complete-url.component';
 
 
 const ROUTER: Routes = [
@@ -18,6 +22,22 @@ const ROUTER: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'get-query-parameters',
+    component: QueryParametersComponent
+  },
+  {
+    path: 'get-fragments',
+    component: FragmentsComponent
+  },
+  {
+    path: 'get-paths',
+    component: PathsComponent
+  },
+  {
+    path: 'get-complete-url',
+    component: CompleteUrlComponent
   },
   {
     path: '**',
