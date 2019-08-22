@@ -1,0 +1,17 @@
+<mat-sidenav-container>
+  <mat-sidenav
+      #sideNavigation
+      role="navigation">
+    <fg-sidebar-navigation></fg-sidebar-navigation>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <fg-main-header>
+      <button (click)="sideNavigation.toggle()">
+        <mat-icon aria-hidden="false" aria-label="menu button">menu</mat-icon>
+      </button>
+    </fg-main-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
